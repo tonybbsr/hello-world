@@ -32,7 +32,7 @@
   </div>
 
    <h1> Thankyou, Happy Learning </h1>
-  <h1> Hi This is the demo project to deploy into tomcat </h1>
+  <h1> Automation </h1>
 
   
 </form>
