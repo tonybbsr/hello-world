@@ -10,7 +10,7 @@ pipeline {
         stage('Git Pull') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/tonybbsr/hello-world.git'
+                git branch: 'qa', url: 'https://github.com/tonybbsr/hello-world.git'
             }
         }
         stage('Maven Build') {
