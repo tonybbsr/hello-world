@@ -33,7 +33,7 @@
 
    <h1> Thankyou, Happy Learning </h1>
   <h1> Automation </h1>
-  <h1> Master brnch </h1>
+  <h1> we are deploying through custom docker image</h1>
 
   
 </form>
