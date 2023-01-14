@@ -23,7 +23,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'docker build -t abcd'
+                sh 'docker build -t abcd .'
             }
         }
         
