@@ -19,11 +19,25 @@ pipeline {
                 sh 'mvn install package'
             }
         }
-        stage('Deploy To Tomcat') {
+        
+        stage('Docker Build') {
             steps {
                 // Get some code from a GitHub repository
-               deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://34.125.237.227:8080/')], contextPath: null, war: 'webapp/target/webapp.war'
+                sh 'docker build -t abcd'
             }
         }
+        
+        stage('Docker Build') {
+            steps {
+                // Get some code from a GitHub repository
+                sh 'docker run -itd -p 8081:8080 abcd'
+            }
+        }
+//         stage('Deploy To Tomcat') {
+//             steps {
+//                 // Get some code from a GitHub repository
+//                deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://34.125.237.227:8080/')], contextPath: null, war: 'webapp/target/webapp.war'
+//             }
+//         }
     }
 }
