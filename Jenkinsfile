@@ -23,13 +23,13 @@ pipeline {
          stage('Docker Build') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'docker build -t debasis .'
+                sh 'sudo docker build -t debasis .'
             }
         }
          stage('Docker run ') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'docker run -itd -p 8080:8080 debasis'
+                sh 'sudo docker run -itd -p 8081:8080 debasis'
             }
         }
 //         stage('Deploy To Tomcat') {
