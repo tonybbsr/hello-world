@@ -30,7 +30,7 @@ pipeline {
         stage('Docker run') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'sudo docker run -itd -p 8081:8080 abcd .'
+                sh 'sudo docker run -itd -p 8081:8080 abcd'
             }
         }
 //         stage('Deploy To Tomcat') {
