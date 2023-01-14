@@ -23,14 +23,14 @@ pipeline {
         stage('Docker Build') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'docker build -t abcd .'
+                sh 'sudo docker build -t abcd .'
             }
         }
         
         stage('Docker run') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'docker run -itd -p 8081:8080 abcd .'
+                sh 'sudo docker run -itd -p 8081:8080 abcd .'
             }
         }
 //         stage('Deploy To Tomcat') {
