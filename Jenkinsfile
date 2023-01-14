@@ -27,7 +27,7 @@ pipeline {
             }
         }
         
-        stage('Docker Build') {
+        stage('Docker run') {
             steps {
                 // Get some code from a GitHub repository
                 sh 'docker run -itd -p 8081:8080 abcd'
