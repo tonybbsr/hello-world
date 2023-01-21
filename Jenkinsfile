@@ -30,16 +30,10 @@ pipeline {
             }
         }
         
-        stage('Login') {
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
-		stage('Push') {
-			steps {
-				sh 'docker push tonybbsr/debasis_sahani:1'
-			}
-		}
+       stage('Push image') {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-cred-tonybbsr') {
+            sh 'sudo docker push tonybbsr/debasis_sahani:1 '
+        }
          stage('Docker run ') {
             steps {
                 // Get some code from a GitHub repository
