@@ -23,7 +23,7 @@ pipeline {
          stage('Docker Build') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'sudo docker build -t debasis .'
+                sh 'sudo docker build -t tonybbsr/debasis:${BUILD_NUMBER} .'
             }
         }
          stage('Docker run ') {
@@ -31,7 +31,7 @@ pipeline {
                 // Get some code from a GitHub repository
                 sh 'sudo docker stop Mohanty'
                 sh 'sudo docker rm Mohanty'
-                sh 'sudo docker run -itd -p 8082:8080 --name Mohanty debasis'
+                sh 'sudo docker run -itd -p 8082:8080 --name Mohanty tonybbsr/debasis:${BUILD_NUMBER}'
             }
         }
 //         stage('Deploy To Tomcat') {
