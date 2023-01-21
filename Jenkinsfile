@@ -5,6 +5,9 @@ pipeline {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
     }
+    environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-tonybbsr')
+	}
 
     stages {
         stage('Git Pull') {
@@ -23,9 +26,20 @@ pipeline {
          stage('Docker Build') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'sudo docker build -t debasis .'
+                sh 'sudo docker build -t tonybbsr/debasis_sahani:1 .'
             }
         }
+        
+        stage('Login') {
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+		stage('Push') {
+			steps {
+				sh 'docker push tonybbsr/debasis_sahani:1'
+			}
+		}
          stage('Docker run ') {
             steps {
                 // Get some code from a GitHub repository
