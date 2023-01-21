@@ -30,17 +30,10 @@ pipeline {
             }
         }
         
-      stage('Push') {
+   stage('Push') {
             steps {
-                script {
-                    withDockerRegistry([credentialsId: 'dockerhub-cred-tonybbsr', url: "https://index.docker.io/v1/"]) {
-                        def image = "tonybbsr/debasis_sahani:1"
-                        docker.withRegistry("https://index.docker.io/v1/", 'dockerhub-cred-tonybbsr') {
-                            image.push()
-                            //image.push("latest")
-                        }
-                    }
-                }
+                sh 'docker login -u tonybbsr -p Grt@12345'
+                sh 'docker push tonybbsr/debasis_sahani:1'
             }
         }
          stage('Docker run ') {
