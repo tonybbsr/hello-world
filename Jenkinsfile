@@ -32,8 +32,8 @@ pipeline {
         
    stage('Push') {
             steps {
-                sh 'docker login -u tonybbsr -p Grt@12345'
-                sh 'docker push tonybbsr/debasis_sahani:1'
+                sh 'sudo docker login -u tonybbsr -p Grt@12345'
+                sh 'sudo docker push tonybbsr/debasis_sahani:1'
             }
         }
          stage('Docker run ') {
