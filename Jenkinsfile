@@ -29,7 +29,7 @@ pipeline {
         stage('Docker push to docker hub') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'sudo doker login -u tonybbsr -p Grt@12345'
+                sh 'sudo docker login -u tonybbsr -p Grt@12345'
                 sh 'sudo docker push tonybbsr/debasis:${BUILD_NUMBER}'
             }
         }
