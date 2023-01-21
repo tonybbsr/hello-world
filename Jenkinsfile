@@ -40,6 +40,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
 		sh 'sudo docker stop sahani'
+		sh 'sudo docker rm sahani'
                 sh 'sudo docker run -itd -p 8081:8080 --name sahani tonybbsr/debasis_sahani:${BUILD_NUMBER}'
             }
         }
