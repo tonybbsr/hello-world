@@ -26,20 +26,20 @@ pipeline {
          stage('Docker Build') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'sudo docker build -t tonybbsr/debasis_sahani:${env.BUILD_NUMBER} .'
+                sh 'sudo docker build -t tonybbsr/debasis_sahani:${BUILD_NUMBER} .'
             }
         }
         
    stage('Push') {
             steps {
                 sh 'sudo docker login -u tonybbsr -p Grt@12345'
-                sh 'sudo docker push tonybbsr/debasis_sahani:${env.BUILD_NUMBER}'
+                sh 'sudo docker push tonybbsr/debasis_sahani:${BUILD_NUMBER}'
             }
         }
          stage('Docker run ') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'sudo docker run -itd -p 8081:8080 tonybbsr/debasis_sahani:${env.BUILD_NUMBER}'
+                sh 'sudo docker run -itd -p 8081:8080 tonybbsr/debasis_sahani:${BUILD_NUMBER}'
             }
         }
 //         stage('Deploy To Tomcat') {
