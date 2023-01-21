@@ -26,6 +26,13 @@ pipeline {
                 sh 'sudo docker build -t tonybbsr/debasis:${BUILD_NUMBER} .'
             }
         }
+        stage('Docker push to docker hub') {
+            steps {
+                // Get some code from a GitHub repository
+                sh 'sudo doker login -u tonybbsr -p Grt@12345'
+                sh 'sudo docker push tonybbsr/debasis:${BUILD_NUMBER}'
+            }
+        }
          stage('Docker run ') {
             steps {
                 // Get some code from a GitHub repository
