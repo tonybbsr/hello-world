@@ -5,9 +5,6 @@ pipeline {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
     }
-    environment {
-		DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-tonybbsr')
-	}
 
     stages {
         stage('Git Pull') {
@@ -26,22 +23,13 @@ pipeline {
          stage('Docker Build') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'sudo docker build -t tonybbsr/debasis_sahani:${BUILD_NUMBER} .'
-            }
-        }
-        
-   stage('Push') {
-            steps {
-                sh 'sudo docker login -u tonybbsr -p Grt@12345'
-                sh 'sudo docker push tonybbsr/debasis_sahani:${BUILD_NUMBER}'
+                sh 'sudo docker build -t debasis .'
             }
         }
          stage('Docker run ') {
             steps {
                 // Get some code from a GitHub repository
-		sh 'sudo docker stop sahani'
-		sh 'sudo docker rm sahani'
-                sh 'sudo docker run -itd -p 8081:8080 --name sahani tonybbsr/debasis_sahani:${BUILD_NUMBER}'
+                sh 'sudo docker run -itd -p 8081:8080 debasis'
             }
         }
 //         stage('Deploy To Tomcat') {
