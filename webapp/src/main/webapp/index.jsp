@@ -33,7 +33,7 @@
 
    <h1> Thankyou, Happy Learning </h1>
   <h1> Automation </h1>
-  <h1> Application changes</h1>
+  <h1> we have deployed through docker stop and docker rm</h1>
 
   
 </form>
