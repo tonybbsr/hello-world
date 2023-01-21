@@ -29,7 +29,7 @@ pipeline {
          stage('Docker run ') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'sudo docker run -itd -p 8082:8080 --name sahani debasis'
+                sh 'sudo docker run -itd -p 8082:8080 --name Mohanty debasis'
             }
         }
 //         stage('Deploy To Tomcat') {
